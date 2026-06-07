@@ -33,7 +33,6 @@
             
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#about" class="nav-item" id="nav-about-link">About</a></li>
-                <li><a href="#terminal" class="nav-item" id="nav-terminal-link">Agent Terminal</a></li>
                 <li><a href="#skills" class="nav-item" id="nav-skills-link">Skills</a></li>
                 <li><a href="#experience" class="nav-item" id="nav-experience-link">Experience</a></li>
                 <li><a href="#projects" class="nav-item" id="nav-projects-link">Projects</a></li>
@@ -88,52 +87,14 @@
                 </p>
                 <div class="hero-actions">
                     <a href="#projects" class="btn btn-primary" id="hero-projects-btn">Explore Work</a>
-                    <a href="#terminal" class="btn btn-outline" id="hero-terminal-btn">Try Interactive Terminal</a>
+                    <a href="#contact" class="btn btn-outline" id="hero-contact-btn">Get in Touch</a>
                 </div>
             </div>
             <div class="hero-visual">
                 <div class="avatar-glow-ring">
                     <div class="avatar-inner-ring">
-                        <img src="assets/profile_avatar.png" alt="Rachana Patwal AI Avatar representation" class="avatar-img" id="profile-avatar-img">
+                        <img src="assets/profile_photo.jpg" alt="Rachana Patwal" class="avatar-img" id="profile-avatar-img">
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AI Agent Terminal Section -->
-        <section class="terminal-section" id="terminal">
-            <div class="section-header center-align">
-                <span class="section-tag">Interactive Demo</span>
-                <h2 class="section-title">Query the Portfolio Agent</h2>
-                <p class="section-description">Run interactive queries directly against a simulated local Agentic RAG system.</p>
-            </div>
-            <div class="terminal-window" id="terminal-window">
-                <div class="terminal-bar">
-                    <div class="window-controls">
-                        <span class="control-dot red-dot"></span>
-                        <span class="control-dot yellow-dot"></span>
-                        <span class="control-dot green-dot"></span>
-                    </div>
-                    <div class="terminal-title">fastmcp://rachana-portfolio-server</div>
-                    <div class="terminal-badge">Agentic RAG</div>
-                </div>
-                <div class="terminal-body" id="terminal-body">
-                    <div class="terminal-line system-line">Connecting to fastmcp://rachana-portfolio-server...</div>
-                    <div class="terminal-line system-line">Session established. Active agent: <span class="highlight-cyan">PortfolioBot v1.0</span></div>
-                    <div class="terminal-line system-line">Knowledge graph loaded successfully. Context: [3+ Years AI Engineer, Databricks-Certified]</div>
-                    <div class="terminal-line system-line">Type <span class="highlight-yellow">"help"</span> to view available agent capabilities.</div>
-                    <div class="terminal-output-container" id="terminal-outputs"></div>
-                    <div class="terminal-input-line">
-                        <span class="terminal-prompt">rachana-agent-cli></span>
-                        <input type="text" class="terminal-input" id="terminal-cli-input" placeholder="Type a command (e.g. help, skills, agent-run)..." autofocus autocomplete="off" spellcheck="false">
-                    </div>
-                </div>
-                <div class="terminal-suggestions">
-                    <span class="suggestion-label">Suggested Commands:</span>
-                    <button class="suggestion-chip" data-cmd="help">help</button>
-                    <button class="suggestion-chip" data-cmd="skills">skills</button>
-                    <button class="suggestion-chip" data-cmd="agent-run">agent-run (RAG search)</button>
-                    <button class="suggestion-chip" data-cmd="projects">projects</button>
                 </div>
             </div>
         </section>

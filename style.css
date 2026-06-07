@@ -39,10 +39,7 @@
     --accent-cyan-glow: rgba(6, 182, 212, 0.35);
     --accent-emerald: hsl(150, 80%, 45%);
     --accent-emerald-glow: rgba(16, 185, 129, 0.2);
-    
-    --terminal-bg: #090d16;
-    --terminal-text: #22c55e;
-    
+
     --glass-blur: blur(16px);
     --shadow-main: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
     --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.15);
@@ -66,10 +63,7 @@
     --accent-cyan-glow: rgba(6, 182, 212, 0.15);
     --accent-emerald: hsl(150, 80%, 35%);
     --accent-emerald-glow: rgba(16, 185, 129, 0.1);
-    
-    --terminal-bg: #1e293b;
-    --terminal-text: #38bdf8;
-    
+
     --glass-blur: blur(12px);
     --shadow-main: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
     --shadow-glow: 0 0 15px rgba(139, 92, 246, 0.05);
@@ -451,34 +445,27 @@ button {
 }
 
 .avatar-glow-ring {
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
+    width: 300px;
+    aspect-ratio: 9 / 16;
+    border-radius: 0;
     position: relative;
-    background: linear-gradient(135deg, var(--primary-neon) 0%, var(--accent-cyan) 100%);
-    padding: 3px;
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.2);
-    animation: rotate 15s linear infinite;
+    box-shadow: 0 25px 50px -20px rgba(0, 0, 0, 0.5);
 }
 
 .avatar-inner-ring {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    background-color: var(--bg-main);
+    border-radius: inherit;
     overflow: hidden;
     position: relative;
-    animation: rotate-reverse 15s linear infinite;
 }
 
 .avatar-img {
-    width: 105%;
-    height: 105%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    object-position: center;
+    display: block;
 }
 
 @keyframes rotate {
@@ -489,156 +476,6 @@ button {
 @keyframes rotate-reverse {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(-360deg); }
-}
-
-/* ==========================================================================
-   AI AGENT TERMINAL
-   ========================================================================== */
-
-.terminal-section {
-    padding: 80px 0;
-}
-
-.terminal-window {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    background: var(--terminal-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    box-shadow: 0 20px 40px -20px rgba(0,0,0,0.6);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.terminal-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 14px 20px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.window-controls {
-    display: flex;
-    gap: 8px;
-}
-
-.control-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.red-dot { background-color: #ef4444; }
-.yellow-dot { background-color: #eab308; }
-.green-dot { background-color: #22c55e; }
-
-.terminal-title {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.terminal-badge {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--accent-cyan);
-    background-color: rgba(6, 182, 212, 0.1);
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid rgba(6, 182, 212, 0.2);
-}
-
-.terminal-body {
-    padding: 24px;
-    height: 380px;
-    overflow-y: auto;
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: var(--terminal-text);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.terminal-line {
-    white-space: pre-wrap;
-    word-break: break-all;
-}
-
-.system-line {
-    color: var(--text-muted);
-}
-
-.user-line {
-    color: var(--text-primary);
-    margin-top: 10px;
-}
-
-.highlight-cyan { color: var(--accent-cyan); }
-.highlight-yellow { color: hsl(50, 90%, 60%); }
-.highlight-violet { color: var(--primary-neon); }
-
-.terminal-input-line {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: auto;
-}
-
-.terminal-prompt {
-    color: var(--primary-neon);
-    font-weight: 600;
-    flex-shrink: 0;
-}
-
-.terminal-input {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--text-primary);
-    width: 100%;
-    caret-color: var(--accent-cyan);
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-}
-
-.terminal-suggestions {
-    background-color: rgba(0, 0, 0, 0.15);
-    padding: 12px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    border-top: 1px solid var(--border-color);
-}
-
-.suggestion-label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.suggestion-chip {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    background-color: var(--bg-accent);
-    border: 1px solid var(--border-color);
-    padding: 4px 10px;
-    border-radius: 4px;
-    transition: var(--transition-smooth);
-}
-
-.suggestion-chip:hover {
-    color: var(--text-primary);
-    border-color: var(--accent-cyan);
-    background-color: rgba(6, 182, 212, 0.1);
 }
 
 /* ==========================================================================
@@ -1287,8 +1124,7 @@ button {
         width: 100%;
     }
     .avatar-glow-ring {
-        width: 260px;
-        height: 260px;
+        width: 240px;
     }
     .tabs-buttons {
         flex-direction: column;
