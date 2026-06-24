@@ -88,26 +88,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================================================
-    // CONTACT FORM CLIENT SIMULATOR
+    // CONTACT FORM — Formspree integration
     // ==========================================================================
     const contactForm = document.getElementById('contact-form');
     const formSuccess = document.getElementById('form-success');
     const submitBtn = document.getElementById('form-submit-btn');
 
+    // TODO: Replace YOUR_FORMSPREE_ID below with your actual Formspree form ID
+    // Sign up at https://formspree.io → New Form → copy the ID from the endpoint
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mkologeq';
+
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            // Check form validity
+
             if (contactForm.checkValidity()) {
                 submitBtn.disabled = true;
-                submitBtn.innerText = 'Routing Message...';
-                
-                // Simulate agent message routing
-                setTimeout(() => {
-                    contactForm.classList.add('hidden');
-                    formSuccess.classList.remove('hidden');
-                }, 1200);
+                submitBtn.innerText = 'Sending...';
+
+                try {
+                    const response = await fetch(FORMSPREE_ENDPOINT, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        contactForm.classList.add('hidden');
+                        formSuccess.classList.remove('hidden');
+                        contactForm.reset();
+                    } else {
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = 'Send Message';
+                        alert('Something went wrong. Please email directly at patwal.rachna95@gmail.com');
+                    }
+                } catch (err) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Send Message';
+                    alert('Something went wrong. Please email directly at patwal.rachna95@gmail.com');
+                }
             }
         });
     }
